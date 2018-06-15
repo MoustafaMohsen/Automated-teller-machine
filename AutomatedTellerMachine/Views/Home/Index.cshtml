@@ -1,0 +1,73 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+
+<div class="row">
+    <div class="col-md-6 margin-top-20">
+        <a href="#" class="btn btn-primary btn-lg btn-block">
+            Withdrawal
+            <span class="glyphicon glyphicon-circle-arrow-down"></span>
+        </a>
+        <a href="#" class="btn btn-primary btn-lg btn-block">
+            Quick Cash $100
+            <span class="glyphicon glyphicon-flash"></span>
+        </a>
+        <a href="@Url.Action("Details","CheckingAccount")" class="btn btn-primary btn-lg btn-block">
+            Balance Iquiry
+            <span class="glyphicon glyphicon-question-sign"></span>
+        </a>
+    </div>
+
+    <div class="col-md-6 margin-top-20">
+        <a href="#" class="btn btn-primary btn-lg btn-block">
+            Print Statment
+            <span class="glyphicon glyphicon-print"></span>
+        </a>
+        <a href="#" class="btn btn-primary btn-lg btn-block">
+            Transfere funds
+            <span class="glyphicon glyphicon-transfer"></span>
+        </a>
+        <a href="@Url.Action("Deposit","Transaction",new {CheckingAccountId = ViewBag.CAId })" class="btn btn-primary btn-lg btn-block">
+            Deposit
+            <span class="glyphicon glyphicon-circle-arrow-up"></span>
+        </a>
+    </div>
+</div>
+
+@ViewBag.Pin
+
+
+
+
+@*
+18/2/2018
+This is { @Request.Browser.Browser }
+List amountt
+this is how to creat an array in c# 
+@{ var amounts = new List<Decimal> { 100, 25.50m, -40, 275.99m,9,-1 };}
+
+call method
+<ul class="list-unstyled list-group">
+    @foreach (decimal a in amounts)
+    {
+        <li class="">@format(a)</li>
+         
+    }
+
+</ul>
+
+
+
+Helper method
+@helper format(decimal amountt)
+{
+        var color = "green";
+        if (amountt < 10)
+{
+    color = "red";
+}
+
+<span style="color:@color">@String.Format("{0:c}",amountt)</span>
+}
+*@
